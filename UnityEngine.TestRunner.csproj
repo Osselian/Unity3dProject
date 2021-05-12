@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CB4FBB7D-D0EA-BC39-48B0-72E0C374210B}</ProjectGuid>
+    <ProjectGuid>{E34CB20D-C384-44D4-53F9-B3E22B1C0D98}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UnityEngine.TestRunner</AssemblyName>
@@ -147,10 +147,10 @@
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Assertions\ConstraintsExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityTestAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\AssemblyProvider\ScriptingRuntimeProxy.cs" />
-    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRendererCallback.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\TestRunner\RemoteHelpers\PlayerConnectionMessageIds.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\Vector2EqualityComparer.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\Utils.cs" />
+    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRendererCallback.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\AssemblyInfo.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestMustExpectAllLogsAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Assertions\LogScope\LogEvent.cs" />
