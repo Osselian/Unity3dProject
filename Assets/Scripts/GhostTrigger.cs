@@ -1,34 +1,46 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GhostTrigger : MonoBehaviour
 {
     //[SerializeField] MeshRenderer _meshRenderer;
 
-    [SerializeField] private GameObject _ghostsGroup;
+    
     [SerializeField] private GameObject[] _ghosts;
+    [SerializeField] private GameObject _target;
 
-    // Start is called before the first frame update
-    void Start()
-    {        
-        //for (int i = 0; i < _ghostsGroup.childCount; i++)
-        //{
-        //    _ghosts[i] = _ghostsGroup.GetChild(i);
-        //}
+    private UnityEvent _scarySoundPlayed = new UnityEvent();
+
+    public event UnityAction ScarySoundPlayed
+    {
+        add => _scarySoundPlayed.AddListener(value);
+        remove => _scarySoundPlayed.RemoveListener(value);
     }
 
-    public void Enable()
+    public void OnEnable()
+    {
+        _target.GetComponent<MovementByPoints>().FinalPointReached += OnPointReached;
+    }
+
+    //public void OnDisable()
+    //{
+    //    _target.GetComponent<MovementByPoints>().FinalPointReached -= OnPointReached;
+    //}
+
+    public void OnPointReached()
     {
         for (int i = 0; i < _ghosts.Length; i++)
         {
-            _ghosts[i].GetComponent<MeshRenderer>().enabled = true;
+            _ghosts[i].GetComponent<MeshRenderer>().enabled = true;            
         }
         
-    }
-    // Update is called once per frame
-    void Update()
-    {
+        GetComponent<AudioSource>().Play();
         
+        _scarySoundPlayed?.Invoke();
+       
+        Debug.Log("SoundPlayed");
     }
+
 }

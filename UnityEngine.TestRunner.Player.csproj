@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{51468CB0-C618-92CF-ABB0-BEFC39618522}</ProjectGuid>
+    <ProjectGuid>{FDB966E8-89B0-8FEC-C216-3FCEF904533E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UnityEngine.TestRunner</AssemblyName>
@@ -88,9 +88,9 @@
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Runner\RestoreTestContextAfterDomainReload.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\TestResultExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\TestRunner\Callbacks\PlayModeRunnerCallback.cs" />
-    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Commands\TestActionCommand.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Commands\SetUpTearDownCommand.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\Vector4EqualityComparer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Commands\TestActionCommand.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableSetUpTearDownCommand.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\MonoBehaviourTest\IMonoBehaviourTest.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\IPrebuildSceneSetup.cs" />
@@ -147,10 +147,10 @@
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Assertions\ConstraintsExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityTestAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\AssemblyProvider\ScriptingRuntimeProxy.cs" />
-    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRendererCallback.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\TestRunner\RemoteHelpers\PlayerConnectionMessageIds.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\Vector2EqualityComparer.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Utils\Utils.cs" />
+    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRendererCallback.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\AssemblyInfo.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestMustExpectAllLogsAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEngine.TestRunner\Assertions\LogScope\LogEvent.cs" />
