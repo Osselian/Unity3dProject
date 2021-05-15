@@ -142,8 +142,8 @@
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\Api\Filter.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\CommandLineParser\CommandLineOptionSet.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\TestRun\TestJobDataHolder.cs" />
-    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\TestRunner\EditorEnumeratorTestWorkItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\TestRunner\Utils\CachingTestListProvider.cs" />
+    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\TestRunner\EditorEnumeratorTestWorkItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\Api\RunState.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\TestSettings\ITestSettingsDeserializer.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.24\UnityEditor.TestRunner\TestRunner\Callbacks\RerunCallbackInitializer.cs" />
