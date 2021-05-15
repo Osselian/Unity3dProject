@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AlarmLoudController : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private float _volumeIncreaseStrenght ;
 
-    private bool IsAlarmed;
+    private bool _isAlarmed;
+    private bool _isRising;
 
     private void OnEnable()
     {
@@ -19,21 +21,30 @@ public class AlarmLoudController : MonoBehaviour
     {
         GetComponent<AlarmTrigger>().Reached -= OnReached;
     }
-    public void Play()
-    {
-        _audioSource.Play();
-    }
     
     private void OnReached()
     {
-        IsAlarmed = true;
+        _isAlarmed = true;
+        _isRising = true;
     }
     private void Update()
     {
-        if (IsAlarmed)
+        if (_isAlarmed && _audioSource.volume == 0)
+        {
+            _isRising = true;
+        }
+        else if (_isAlarmed && _audioSource.volume == 1)
+        {
+            _isRising = false;
+        }
+
+        if (_isAlarmed && _isRising)
         {
             _audioSource.volume += _volumeIncreaseStrenght * Time.deltaTime;
+        }        
+        else if (_isAlarmed && _isRising == false)
+        {
+            _audioSource.volume -= _volumeIncreaseStrenght * Time.deltaTime;
         }
-        
     }
 }

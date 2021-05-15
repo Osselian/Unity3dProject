@@ -17,18 +17,16 @@ public class AlarmTrigger : MonoBehaviour
         if (other.TryGetComponent<MovementByPoints>(out MovementByPoints movementComponent));
         {
             _reached?.Invoke();
+            GetComponent<AudioSource>().Play();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent<MovementByPoints>(out MovementByPoints movementComponent)) ;
+        {
+            _reached?.Invoke();
+            GetComponent<AudioSource>().Stop();
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

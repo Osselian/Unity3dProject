@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class MovementByPoints : MonoBehaviour
 {
     [SerializeField] private Transform _pathIn;
     [SerializeField] private Transform _pathOut;
+    [SerializeField] private float _duration;
     [SerializeField] private float _speed;
-    
 
     private UnityEvent _finalPointReached = new UnityEvent();
 
@@ -18,57 +19,49 @@ public class MovementByPoints : MonoBehaviour
         remove => _finalPointReached.RemoveListener(value);
     }
 
-    private Transform target;
-    private Transform[] _points;
-    private int _currrentPoint;
+    private Vector3[] _points;
+    private bool _endPointIsReached;
 
     public float Speed { get; private set; }
 
     public void OnEnable()
     {
-        GetComponent<AnimationStarter>().RunAway += OnRunAway;
+        GetComponentInChildren<Animator>().GetBehaviour<ScaredEnabled>().RunAway += OnRunAway;
     }
 
     public void OnDisable()
     {
-        GetComponent<AnimationStarter>().RunAway -= OnRunAway;
+        GetComponentInChildren<Animator>().GetBehaviour<ScaredEnabled>().RunAway += OnRunAway;
     }
 
     private void Start()
     {
-        SetPath(_pathIn, 1);
+        SetPath(_pathIn, _speed);
+        Move();
     }
 
     private void Update()
     {
-        if (_currrentPoint < _points.Length)
-        {
-            target = _points[_currrentPoint];
-
-            transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);
-
-            if (target.position == transform.position)
-            {
-                _currrentPoint++;
-            }
-        }
-        else if (_currrentPoint == _points.Length)
+        if (transform.position == _points[_points.Length - 1] && _endPointIsReached == false)
         {
             End();
-            _currrentPoint++;
+            _endPointIsReached = true;
         }
+    }
+    private void Move()
+    {
+        Tween tween = transform.DOPath(_points, _duration / Speed, PathType.Linear).SetLookAt(0.05f);
     }
 
     private void SetPath(Transform path, float speed)
     {
         Speed = speed;
-        _currrentPoint = 0;
 
-        _points = new Transform[path.childCount];
+        _points = new Vector3[path.childCount];
 
         for (int i = 0; i < path.childCount; i++)
         {
-            _points[i] = path.GetChild(i);
+            _points[i] = path.GetChild(i).position;
             Debug.Log(_points[i]);
         }
     }
@@ -76,12 +69,13 @@ public class MovementByPoints : MonoBehaviour
     private void OnRunAway()
     {
         SetPath(_pathOut, 2f);
+        Move();
     }
 
     private void End()
     {
         Debug.Log("Final point reached");
-        _speed = 0;
+        Speed = 0;
         _finalPointReached?.Invoke();
         
     }
