@@ -54,8 +54,8 @@ public class MovementByPoints : MonoBehaviour
         }
         else if (_currrentPoint == _points.Length)
         {
+            End();
             _currrentPoint++;
-            End();            
         }
     }
 
@@ -75,15 +75,14 @@ public class MovementByPoints : MonoBehaviour
 
     private void OnRunAway()
     {
-        
-        Debug.Log("Running away");
         SetPath(_pathOut, 2f);
     }
 
     private void End()
     {
         Debug.Log("Final point reached");
-        Speed = 0;
-        _finalPointReached?.Invoke();        
+        _speed = 0;
+        _finalPointReached?.Invoke();
+        
     }
 }

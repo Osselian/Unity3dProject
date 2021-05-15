@@ -33,14 +33,10 @@ public class GhostTrigger : MonoBehaviour
     {
         for (int i = 0; i < _ghosts.Length; i++)
         {
-            _ghosts[i].GetComponent<MeshRenderer>().enabled = true;            
+            _ghosts[i].GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<AudioSource>().Play();
+            _scarySoundPlayed?.Invoke();
         }
-        
-        GetComponent<AudioSource>().Play();
-        
-        _scarySoundPlayed?.Invoke();
-       
-        Debug.Log("SoundPlayed");
     }
 
 }
