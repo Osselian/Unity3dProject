@@ -62,7 +62,6 @@ public class MovementByPoints : MonoBehaviour
         for (int i = 0; i < path.childCount; i++)
         {
             _points[i] = path.GetChild(i).position;
-            Debug.Log(_points[i]);
         }
     }
 
@@ -74,9 +73,7 @@ public class MovementByPoints : MonoBehaviour
 
     private void End()
     {
-        Debug.Log("Final point reached");
         Speed = 0;
         _finalPointReached?.Invoke();
-        
     }
 }

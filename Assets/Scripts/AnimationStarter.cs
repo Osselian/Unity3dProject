@@ -15,12 +15,12 @@ public class AnimationStarter : MonoBehaviour
         _externalModifier.GetComponent<GhostTrigger>().ScarySoundPlayed += OnScared;
     }
 
-    void Start()
+    private void Start()
     {
         _animator = GetComponentInChildren<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
         _speed = GetComponent<MovementByPoints>().Speed;
         
@@ -29,7 +29,5 @@ public class AnimationStarter : MonoBehaviour
     private void OnScared()
     {
         _animator.SetTrigger("Scared");
-        
-        Debug.Log("Scared");
     }
 }
