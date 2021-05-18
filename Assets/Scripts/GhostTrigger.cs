@@ -4,10 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class GhostTrigger : MonoBehaviour
-{
-    //[SerializeField] MeshRenderer _meshRenderer;
-
-    
+{    
     [SerializeField] private GameObject[] _ghosts;
     [SerializeField] private GameObject _target;
 
@@ -24,11 +21,6 @@ public class GhostTrigger : MonoBehaviour
         _target.GetComponent<MovementByPoints>().FinalPointReached += OnPointReached;
     }
 
-    //public void OnDisable()
-    //{
-    //    _target.GetComponent<MovementByPoints>().FinalPointReached -= OnPointReached;
-    //}
-
     public void OnPointReached()
     {
         for (int i = 0; i < _ghosts.Length; i++)
@@ -38,5 +30,4 @@ public class GhostTrigger : MonoBehaviour
             _scarySoundPlayed?.Invoke();
         }
     }
-
 }
