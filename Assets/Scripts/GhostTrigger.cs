@@ -20,6 +20,10 @@ public class GhostTrigger : MonoBehaviour
     {
         _target.GetComponent<MovementByPoints>().FinalPointReached += OnPointReached;
     }
+    public void OnDisable()
+    {
+        _target.GetComponent<MovementByPoints>().FinalPointReached -= OnPointReached;
+    }
 
     public void OnPointReached()
     {
