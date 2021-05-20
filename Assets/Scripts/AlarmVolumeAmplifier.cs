@@ -29,7 +29,6 @@ public class AlarmVolumeAmplifier : MonoBehaviour
 
     private IEnumerator AmplifyVolume()
     {
-        Debug.Log("Amplify");
         while (_audioSource.volume < 1)
         {
             _audioSource.volume += _volumeIncreaseStrenght;
@@ -39,7 +38,6 @@ public class AlarmVolumeAmplifier : MonoBehaviour
 
     private IEnumerator ReduceVolume()
     {
-        Debug.Log("Reduse");
         while (_audioSource.volume > 0.01f)
         {
             _audioSource.volume -= _volumeIncreaseStrenght;
