@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AlarmTrigger))]
 public class AlarmVolumeAmplifier : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
@@ -12,15 +13,13 @@ public class AlarmVolumeAmplifier : MonoBehaviour
     private void OnEnable()
     {
         _alarmTrigger = GetComponent<AlarmTrigger>();
-        _audioSource.volume = 0;
+        _audioSource.volume = 0.1f;
         _alarmTrigger.Reached += OnReached;
     }
 
     private void OnDisable()
     {
         _alarmTrigger.Reached -= OnReached;
-        StopCoroutine(AmplifyVolume());
-        StopCoroutine(ReduceVolume());
     }
     
     private void OnReached()
@@ -30,30 +29,32 @@ public class AlarmVolumeAmplifier : MonoBehaviour
 
     private IEnumerator AmplifyVolume()
     {
-        for (int i = 0; i < 255; i++)
+        Debug.Log("Amplify");
+        while (_audioSource.volume < 1)
         {
-            _audioSource.volume += 1f / 255;
+            _audioSource.volume += _volumeIncreaseStrenght;
             yield return null;
         }
     }
 
     private IEnumerator ReduceVolume()
     {
-        
-        for (int i = 0; i < 255; i++)
+        Debug.Log("Reduse");
+        while (_audioSource.volume > 0.01f)
         {
-            _audioSource.volume -= 1f / 255;
+            _audioSource.volume -= _volumeIncreaseStrenght;
             yield return null;
         }
+
     }
     private void Update()
     {
-        if (_audioSource.volume == 1)
+        if (_audioSource.volume >= 0.9)
         {
             StopCoroutine(AmplifyVolume());
             StartCoroutine(ReduceVolume());
         }
-        if (_audioSource.volume == 0)
+        if (_audioSource.volume <= 0.1)
         {
             StopCoroutine(ReduceVolume());
             StartCoroutine(AmplifyVolume());

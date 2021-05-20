@@ -31,7 +31,7 @@ public class MovementByPoints : MonoBehaviour
 
     public void OnDisable()
     {
-        GetComponentInChildren<Animator>().GetBehaviour<ScaredEnabled>().RunAway += OnRunAway;
+        GetComponentInChildren<Animator>().GetBehaviour<ScaredEnabled>().RunAway -= OnRunAway;
     }
 
     private void Start()
